@@ -1,0 +1,54 @@
+.card {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s;
+  max-width: 200px;
+  width: 100%;
+  border: 0px solid transparent;
+  color: black;
+
+  img {
+    overflow: hidden;
+    display: block;
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+  }
+  .desciption{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    padding-top: 20px;
+    font-family: "Jost", sans-serif;
+    font-size: 20px;
+    max-width: 170px;
+    gap: 10px;
+    .price{
+      font-size: 20px;
+      font-weight: 300;
+
+    }
+  }
+}
+
+.card:hover{
+  background-color: #FF6200;
+  padding: 20px;
+  color: #00A480	;
+  transition: 0.5s;
+  cursor: pointer;
+  .desciption{
+
+    transition: 0.5s;
+
+  }
+
+}
+
+.inner:hover{
+padding: 10px;
+transition: 0.5s;
+}
+
