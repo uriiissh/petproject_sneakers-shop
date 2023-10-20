@@ -1,14 +1,13 @@
 .container{
   margin: 0;
-  max-width: 1920px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .content{
-  max-width: 1200px;
-  width: 100%;
+  max-width: 1280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,7 +29,7 @@
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 100px;
+  gap: 50px;
   width: 100%;
   padding: 50px 0;
 }

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Card } from "../card";
 import styles from "./home.module.scss";
-import { Link } from "react-router-dom";
+import { Title } from "../baseComponents";
+
 
 export const Home = () => {
   const [sneakers, setSneakers] = useState([]);
@@ -32,13 +33,11 @@ export const Home = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.title}>Каталог</div>
+        <Title>Каталог</Title>
         <div className={styles.cards}>
           {sneakers.length ? (
             sneakers?.map((sneaker) => (
-              <Link className={styles.link} to={`/sneakers/${sneaker.id}`}>
-                <Card key={sneaker.id} sneaker={sneaker} />
-              </Link>
+              <Card key={sneaker.id} sneaker={sneaker} />
             ))
           ) : (
             <p>Что-то пошло не так:(</p>

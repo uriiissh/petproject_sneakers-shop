@@ -1,11 +1,11 @@
 import styles from "./header.module.scss";
 import { Link } from "react-router-dom";
-import cart from "./images/cart.svg";
-import fav from "./images/fav.svg";
-import { BsFillBasket2Fill, BsFillHeartFill } from "react-icons/bs";
-import { IconContext } from "react-icons";
+import { FaShoppingCart, FaRegHeart } from "react-icons/fa";
+import { useFavorites } from "../../hooks/useFavorites";
 
 export const Header = () => {
+  const { favorites } = useFavorites();
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -22,19 +22,18 @@ export const Header = () => {
           </Link>
         </div>
         <div className={styles.icons}>
-          <Link className={styles.link} to="/cart">
-            <IconContext.Provider value={{ size: "1.5em" }}>
-              <div>
-                <BsFillBasket2Fill />
-              </div>
-            </IconContext.Provider>
+          <Link to="/cart">
+            <FaShoppingCart fontSize={30} color={"black"} />
           </Link>
-          <Link className={styles.link} to="/fav">
-            <IconContext.Provider value={{ size: "1.5em" }}>
-              <div>
-                <BsFillHeartFill />
-              </div>
-            </IconContext.Provider>
+          <Link to="/fav">
+            <FaRegHeart fontSize={30} color={"black"} />
+            <div
+              className={
+                favorites.length === 0 ? styles.counter_empty : styles.counter
+              }
+            >
+              {favorites.length}
+            </div>
           </Link>
         </div>
       </div>

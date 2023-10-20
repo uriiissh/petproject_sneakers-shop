@@ -1,13 +1,9 @@
 .container {
   background-color: rgb(235, 235, 235);
-  max-width: 1920px;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
-
-
-
 }
 
 .content {
@@ -27,7 +23,7 @@
     padding: 10px;
     max-width: 100px;
   }
-  .link{
+  .link {
     text-decoration: none;
   }
   .nav {
@@ -54,13 +50,31 @@
   }
 }
 
-
+.counter_empty{
+  display: none;
+  transition: 1s;
+}
 
 .icons{
   display: flex;
-  flex-direction: row;
-  gap: 15px;
+  justify-content: center;
   align-items: center;
-
+  gap: 20px;
+  display: flex;
+  max-width: 200px;
+  position: relative;
+  .counter{
+    font-family: "Jost", sans-serif;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #ff6200;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
-

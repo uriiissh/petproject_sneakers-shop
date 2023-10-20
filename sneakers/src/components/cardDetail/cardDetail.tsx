@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import styles from "./cardDetail.module.scss";
 import { useEffect, useState } from "react";
+import { Button } from "../baseComponents";
 
 export const CardDetail = ({}) => {
   const { id } = useParams();
@@ -55,7 +56,7 @@ export const CardDetail = ({}) => {
             <div className={styles.price}>{card?.price}</div>
             </div>
             <div className={styles.info}> {card?.info}</div>
-            <div onClick={createCartItem} className={styles.btn}> Добавить в корзину </div>
+            <Button>Добавить в корзину</Button>
           </div>
         </div>
       </div>
