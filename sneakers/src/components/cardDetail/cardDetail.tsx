@@ -2,8 +2,12 @@ import { useParams } from "react-router-dom";
 import styles from "./cardDetail.module.scss";
 import { useEffect, useState } from "react";
 import { Button } from "../baseComponents";
+import { useActions } from "src/hooks/useActions";
 
 export const CardDetail = ({}) => {
+
+  const { toggleGoods } = useActions();
+
   const { id } = useParams();
   const [card, setCard] = useState<{
     id?: string;
@@ -14,15 +18,6 @@ export const CardDetail = ({}) => {
   }>({});
 
 
-  const createCartItem = async (data: any) => {
-    let cartData = new FormData();
-    cartData.append("data", JSON.stringify(data));
-
-    const response = await fetch ("http://localhost:1337/api/carts",{
-      method: "POST",
-      body: cartData,
-    })
-  }
 
   const getById = async () => {
     const response = await fetch(`
@@ -53,10 +48,10 @@ export const CardDetail = ({}) => {
           <div className={styles.right}>
             <div className={styles.title}>
             <div className={styles.name}>{card?.name}</div>
-            <div className={styles.price}>{card?.price}</div>
+            <div className={styles.price}>{card?.price} ₽</div>
             </div>
             <div className={styles.info}> {card?.info}</div>
-            <Button>Добавить в корзину</Button>
+            <Button onClick={() => toggleGoods(card)}>Добавить в корзину</Button>
           </div>
         </div>
       </div>

@@ -1,14 +1,28 @@
-import { useState } from "react";
 import styles from "./cart.module.scss";
+import { useGoods } from "src/hooks/useGoods";
+import { CartItem } from "./cartItems/cartItem";
+import { Title } from "../baseComponents";
 
 export const Cart = () =>{
-  const [items, setItmes] = useState([])
+  const { goods } = useGoods();
+  const listGoods = localStorage.getItem("goods");
 
 
 
   return(
     <div className={styles.container}>
-      ПОМОГИТЕ У МЕНЯ УКРАЛИ ДРУГА ОН МНЕ ОТВЕЧАЕТ В 4 РАЗА РЕЖЕ
+      <Title>Корзина</Title>
+      <div className={styles.content}>
+      {(JSON.parse(listGoods) || []).length ? (
+          goods?.map((sneaker: any) => (
+            <CartItem key={sneaker.id} sneaker={sneaker}>
+              <button className={styles.cartbtn}>Добавить в корзину</button>
+            </CartItem>
+          ))
+        ) : (
+          <p>Тут пусто:(</p>
+        )}
+      </div>
     </div>
   )
 }

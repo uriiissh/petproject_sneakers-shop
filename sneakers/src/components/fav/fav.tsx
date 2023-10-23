@@ -1,7 +1,6 @@
 import { useFavorites } from "src/hooks/useFavorites";
-import { FavItem } from "./FavItem/favItem";
 import styles from "./fav.module.scss";
-import { Title } from "../baseComponents";
+import { Title, Card } from "../baseComponents";
 
 export const Favorites = () => {
   const { favorites } = useFavorites();
@@ -9,10 +8,14 @@ export const Favorites = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.favcards}>
       <Title>Избранное</Title>
+      <div className={styles.favcards}>
         {(JSON.parse(list) || []).length ? (
-          favorites?.map((fav: any) => <FavItem key={fav.id} fav={fav} />)
+          favorites?.map((sneaker: any) => (
+            <Card key={sneaker.id} sneaker={sneaker}>
+              <button className={styles.cartbtn}>Добавить в корзину</button>
+            </Card>
+          ))
         ) : (
           <p>Тут пусто:(</p>
         )}

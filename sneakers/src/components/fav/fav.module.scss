@@ -6,12 +6,27 @@
   align-items: center;
   margin: 0 auto;
   .favcards {
-    max-width: 1280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 30px;
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 40px;
+    grid-row-gap: 30px;
+    .cartbtn{
+      padding: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      font-family: "Jost", sans-serif;
+      border: 1px solid transparent;
+      cursor: pointer;
+      width: 100%;
+      font-size: 15px;
+      transition: 0.5s;
+    }
+
+    .cartbtn:hover{
+      background-color: greenyellow;
+      transition: 0.5s;
+    }
   }
 }

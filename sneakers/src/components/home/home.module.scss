@@ -1,47 +1,37 @@
-.container{
+.container {
   margin: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-.content{
+.content {
   max-width: 1280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
-.title{
+
+.title {
   font-family: "Jost", sans-serif;
   font-size: 40px;
   padding-top: 10px;
   display: flex;
   width: 100%;
-
-
 }
 
-.cards{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 50px;
-  width: 100%;
-  padding: 50px 0;
-}
-
-.slider{
-  max-height: 600px;
-  max-width: 1920px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.link{
-  text-decoration: none;
+.cards {
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 40px;
+  grid-row-gap: 30px;
+  
+  .link {
+    text-decoration: none;
+  }
 }

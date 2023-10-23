@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Card } from "../card";
 import styles from "./home.module.scss";
-import { Title } from "../baseComponents";
+import { Title, Card } from "../baseComponents";
 
 
 export const Home = () => {
