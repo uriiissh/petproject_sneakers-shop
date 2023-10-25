@@ -17,16 +17,18 @@
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
       font-family: "Jost", sans-serif;
-      border: 1px solid transparent;
+      border: none;
       cursor: pointer;
       width: 100%;
       font-size: 15px;
       transition: 0.5s;
+
     }
 
     .cartbtn:hover{
-      background-color: greenyellow;
+      background-color: #00A480;
       transition: 0.5s;
+      color: white;
     }
   }
 }

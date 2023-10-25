@@ -3,8 +3,10 @@ import { useGoods } from "src/hooks/useGoods";
 import { CartItem } from "./cartItems/cartItem";
 import { Title } from "../baseComponents";
 
+
 export const Cart = () =>{
   const { goods } = useGoods();
+
   const listGoods = localStorage.getItem("goods");
 
 

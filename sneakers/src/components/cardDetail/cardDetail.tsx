@@ -6,7 +6,7 @@ import { useActions } from "src/hooks/useActions";
 
 export const CardDetail = ({}) => {
 
-  const { toggleGoods } = useActions();
+  const { addGoods } = useActions();
 
   const { id } = useParams();
   const [card, setCard] = useState<{
@@ -51,7 +51,7 @@ export const CardDetail = ({}) => {
             <div className={styles.price}>{card?.price} ₽</div>
             </div>
             <div className={styles.info}> {card?.info}</div>
-            <Button onClick={() => toggleGoods(card)}>Добавить в корзину</Button>
+            <Button onClick={() => addGoods(card)}>Добавить в корзину</Button>
           </div>
         </div>
       </div>

@@ -1,9 +1,11 @@
 import { useFavorites } from "src/hooks/useFavorites";
 import styles from "./fav.module.scss";
 import { Title, Card } from "../baseComponents";
+import { useActions } from "src/hooks/useActions";
 
 export const Favorites = () => {
   const { favorites } = useFavorites();
+  const { addGoods } = useActions();
   const list = localStorage.getItem("favorites");
 
   return (
@@ -13,7 +15,7 @@ export const Favorites = () => {
         {(JSON.parse(list) || []).length ? (
           favorites?.map((sneaker: any) => (
             <Card key={sneaker.id} sneaker={sneaker}>
-              <button className={styles.cartbtn}>Добавить в корзину</button>
+              <button onClick={() => addGoods(sneaker)} className={styles.cartbtn}>Добавить в корзину</button>
             </Card>
           ))
         ) : (

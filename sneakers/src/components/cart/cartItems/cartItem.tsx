@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import styles from "./cartItem.module.scss";
 import { ImCross } from 'react-icons/im'
+import { useActions } from "src/hooks/useActions";
 
 export const CartItem = ({
   sneaker,
@@ -9,6 +10,9 @@ export const CartItem = ({
   sneaker: { img: string; name: string; price: string; id: string };
   children?: ReactNode;
 }) => {
+
+  const { deleteGoods } = useActions();
+
   return (
     <div className={styles.good}>
       <div className={styles.left}>
@@ -18,7 +22,7 @@ export const CartItem = ({
       <div className={styles.right}>
         <div className={styles.price}>{sneaker?.price} ₽</div>
       </div>
-       <button className={styles.cross}><ImCross/></button>
+       <button onClick={() => deleteGoods(sneaker)} className={styles.cross}><ImCross/></button>
     </div>
   );
 };
