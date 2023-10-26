@@ -15,7 +15,7 @@ export const Favorites = () => {
         {(JSON.parse(list) || []).length ? (
           favorites?.map((sneaker: any) => (
             <Card key={sneaker.id} sneaker={sneaker}>
-              <button onClick={() => addGoods(sneaker)} className={styles.cartbtn}>Добавить в корзину</button>
+              <button onClick={() => addGoods(sneaker)}   className={styles.cartbtn}>Добавить в корзину</button>
             </Card>
           ))
         ) : (

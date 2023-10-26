@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import styles from "./cardDetail.module.scss";
 import { useEffect, useState } from "react";
-import { Button } from "../baseComponents";
+import { Button, Modal } from "../baseComponents";
 import { useActions } from "src/hooks/useActions";
 
 export const CardDetail = ({}) => {
+
+  const [modalActive, setModalActive] = useState(false);
 
   const { addGoods } = useActions();
 
@@ -51,7 +53,10 @@ export const CardDetail = ({}) => {
             <div className={styles.price}>{card?.price} ₽</div>
             </div>
             <div className={styles.info}> {card?.info}</div>
-            <Button onClick={() => addGoods(card)}>Добавить в корзину</Button>
+            <Button onClick={() => {addGoods(card); setModalActive(true)}}>Добавить в корзину</Button>
+            <Modal active={modalActive} setActive={setModalActive}>
+        <p>Товар добавлен в корзину</p>
+      </Modal>
           </div>
         </div>
       </div>

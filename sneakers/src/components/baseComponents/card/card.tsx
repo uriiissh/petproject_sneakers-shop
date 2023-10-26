@@ -3,7 +3,8 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useFavorites } from "../../../hooks/useFavorites";
 import { useActions } from "src/hooks/useActions";
 import { Link } from "react-router-dom";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import { Modal } from "../Modal/modal";
 
 export const Card = ({
   sneaker,
@@ -17,6 +18,7 @@ export const Card = ({
   const { favorites } = useFavorites();
 
   const isExist = favorites.some((s: { id: string }) => s.id === sneaker.id);
+  const [modalActive, setModalActive] = useState(false);
 
   console.log(favorites);
 
@@ -38,7 +40,10 @@ export const Card = ({
           </div>
         </Link>
       </div>
-      <div className={styles.btn}>{children}</div>
+      <div onClick={() =>  setModalActive(true)} className={styles.btn}>{children}</div>
+      <Modal active={modalActive} setActive={setModalActive}>
+        <p>Товар добавлен в корзину</p>
+      </Modal>
     </div>
   );
 };
